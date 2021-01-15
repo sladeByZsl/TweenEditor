@@ -24,16 +24,9 @@ public class SerialQueue
 
     }
 
-    public void PushAction(float delay, Action action)
+    public void AppendAction(Action action)
     {
-        if(currentTask==null)
-        {
-            currentTask = new ActionTask(delay, action);
-        }
-        else
-        {
-            actionTaskList.Add(new ActionTask(delay, action));
-        }
+        
     }
 
     public void Update()

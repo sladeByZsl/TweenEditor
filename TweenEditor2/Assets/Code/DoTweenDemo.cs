@@ -12,6 +12,19 @@ public class DoTweenDemo : MonoBehaviour
     void Start()
     {
         DOTween.Init(true, true, LogBehaviour.Verbose).SetCapacity(200, 10);
+
+        SerialQueue queue = new SerialQueue();
+        queue.AppendAction(() =>
+        {
+            Debug.LogError("time:" + Time.time + ",move");
+        });
+        queue.AppendAction(() =>
+        {
+            Debug.LogError("time:" + Time.time + ",animation");
+        });
+
+        int actionID = ActionManager.GetInstance().PushAction(2, () => { });
+        
     }
 
     public void DoStartCallback()
