@@ -106,7 +106,7 @@ public class MonoBehaviourPool<T> where T : MonoBehaviour
         if (instance != null && RootTran != null)
         {
             GameObject gameObject = instance.gameObject;
-            //当把对象还回对象池时，为了保证对象时干净的，把对象身上所有的gameobject都销毁掉
+            //当把对象还回对象池时，为了保证对象时干净的，把对象身上所有的componments都销毁掉
             gameObject.GetComponents(mComponments);
             if (mComponments != null)
             {
