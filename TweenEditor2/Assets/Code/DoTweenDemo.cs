@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using DG.Tweening.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ public class DoTweenDemo : MonoBehaviour
         });
 
         int actionID = ActionManager.GetInstance().PushAction(2, () => { });
-        
+
     }
 
     public void DoStartCallback()
@@ -94,6 +95,12 @@ public class DoTweenDemo : MonoBehaviour
             Sequence mySequence = DOTween.Sequence();
             mySequence.Append(cube.transform.DOMoveX(12, 3));
             mySequence.Append(cube.transform.DOMoveX(-12, 3));
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            DOTweenAnimation da = this.GetComponent<DOTweenAnimation>();
+            da.animationType = DOTweenAnimationType.BezierMove;
         }
     }
 }
